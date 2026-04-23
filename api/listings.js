@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     }
 
     // 2. Fetch listings
-    const seller = "oblivioushaxton";
+    const seller = "obilivioushaxton"; // eBay seller username
 
     const ebayRes = await fetch(
       `https://api.ebay.com/buy/browse/v1/item_summary/search?q=*&seller=${seller}`,
