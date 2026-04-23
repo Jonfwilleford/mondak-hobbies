@@ -92,61 +92,6 @@ async function loadHomeListings() {
   });
 }
 
-// -------------------------
-// PRODUCTS PAGE RENDER (all listings)
-// -------------------------
-async function loadProducts() {
-  const grid = document.getElementById('productsGrid');
-  if (!grid) return;
-
-  const items = await fetchListings();
-
-  allCards = items.map(item => ({
-    title: item.title || 'Untitled',
-    price: item.price?.value || 'N/A',
-    imgSrc: item.image?.imageUrl || '',
-    url: item.itemWebUrl || '#',
-    cond: item.condition || '',
-    sport: detectSport(item.title || '')
-  }));
-
-  renderProducts(allCards);
-}
-
-
-// -------------------------
-// PRODUCT RENDER
-// -------------------------
-function renderProducts(cards) {
-  const grid = document.getElementById('productsGrid');
-  if (!grid) return;
-
-  if (!cards.length) {
-    grid.innerHTML = '<div class="empty-state"><p>No cards found.</p></div>';
-    return;
-  }
-
-  grid.innerHTML = '';
-
-  cards.forEach(c => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-
-    card.innerHTML = `
-      <div class="product-img-wrap">
-        ${c.imgSrc ? `<img src="${c.imgSrc}" alt="${c.title}">` : ''}
-      </div>
-      <div class="product-body">
-        <p class="product-title">${c.title}</p>
-        <p class="product-price">$${c.price}</p>
-        <a href="${c.url}" target="_blank">View on eBay</a>
-      </div>
-    `;
-
-    grid.appendChild(card);
-  });
-}
-
 
 // -------------------------
 // SIMPLE SPORT DETECTION
@@ -167,4 +112,3 @@ function detectSport(title) {
 // INIT (runs based on page)
 // -------------------------
 if (isHomePage) loadHomeListings();
-if (isProductsPage) loadProducts();

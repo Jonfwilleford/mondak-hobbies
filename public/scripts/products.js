@@ -1,25 +1,7 @@
     /* ── Products page logic ── */
-    //const LISTINGS_URL = 'http://localhost:3000/api/listings';
 
-    async function loadProducts() {
-  const grid = document.getElementById('productsGrid');
-  if (!grid) return;
-
-  const items = await fetchListings(); // from main.js
-
-  allCards = items.map(item => ({
-    title: item.title || 'Untitled',
-    price: item.price?.value || 'N/A',
-    imgSrc: item.image?.imageUrl || '',
-    url: item.itemWebUrl || '#',
-    cond: item.condition || '',
-    sport: detectSport(item.title || '')
-  }));
-
-  renderCards(allCards);
-}
-
-    let allCards = [];
+    const res = await fetch('/api/listings');
+    const items = await res.json();
 
     function detectSport(title) {
       const t = title.toLowerCase();
@@ -68,7 +50,8 @@
     });
 
     /* Search */
-    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    const search = document.getElementById('searchInput');
+    if (search) search.addEventListener('input', applyFilters);
 
     function applyFilters() {
       const sport  = document.querySelector('.pill.active')?.dataset.filter || 'all';
@@ -80,3 +63,8 @@
       });
       renderCards(filtered);
     }
+
+    window.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('productsGrid');
+    if (grid) loadProducts();
+    });
