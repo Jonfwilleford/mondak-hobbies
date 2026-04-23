@@ -1,15 +1,20 @@
-export default function handler(req, res) {
-  // Log what eBay is sending (important for debugging)
-  console.log("eBay delete request body:", req.body);
+import crypto from "crypto";
 
-  // MUST explicitly handle request method
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+export default function handler(req, res) {
+  const challengeCode = req.body?.challengeCode;
+  const verificationToken = process.env.EBAY_VERIFICATION_TOKEN;
+  const endpoint = "https://mondak-hobbies.vercel.app/api/delete";
+
+  if (challengeCode) {
+    const hash = crypto
+      .createHash("sha256")
+      .update(challengeCode + verificationToken + endpoint)
+      .digest("hex");
+
+    return res.status(200).json({
+      challengeResponse: hash
+    });
   }
 
-  // MUST return valid JSON response
-  return res.status(200).json({
-    status: "received",
-    timestamp: new Date().toISOString()
-  });
+  return res.status(200).json({ status: "ok" });
 }
