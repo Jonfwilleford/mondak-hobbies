@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonDak Hobbies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav">
+    <a class="nav-logo" href="home.html">
+      <img src="/imgs/mondak_logo.jpeg" alt="MonDak Hobbies" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html/products.html">Products</a></li>
+      <li><a href="html/breaks.html">Breaks</a></li>
+      <li><a href="html/sell-your-cards.html">Sell Cards</a></li>
+      <li><a href="html/grading.html">PSA Grading</a></li>
+      <li><a href="html/contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="html/products.html">Products</a>
+    <a href="html/breaks.html">Breaks</a>
+    <a href="html/sell-your-cards.html">Sell Cards</a>
+    <a href="html/grading.html">PSA Grading</a>
+    <a href="html/contact.html">Contact</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-mountain"></div>
+    <div class="hero-content">
+      <div>
+        <p class="hero-eyebrow">Sidney, Montana &mdash; Est. 2024</p>
+        <h1 class="hero-title">
+          Elevate<br><em>Your</em><br>Collection
+        </h1>
+        <p class="hero-sub">
+          Rare and high-end sports cards curated for serious collectors.
+          Iconic legends. Rising stars. Every card selected for authenticity,
+          condition, and long-term value.
+        </p>
+        <div class="hero-buttons">
+          <a href="html/products.html" class="btn-primary">Shop Now</a>
+          <a href="html/contact.html" class="btn-outline">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-logo-card">
+        <img src="imgs/mondak_logo.jpeg" alt="MonDak Hobbies" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <div class="services-bg">
+    <div class="section">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Our Services</h2>
+      <div class="gold-rule"></div>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="imgs/sportsCards1.jpg" alt="Card Breaks" class="service-img" />
+          <div class="service-body">
+            <h3>Live Breaks</h3>
+            <p>Join our live box breaks and crack packs alongside other collectors. Every slot has a shot at a big hit.</p>
+            <a href="breaks.html" class="btn-sm">Join a Break</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="imgs/sportsCards2.jpg" alt="Sell Your Cards" class="service-img" />
+          <div class="service-body">
+            <h3>We Buy Cards</h3>
+            <p>Looking to sell your collection? We offer fair, competitive prices on singles, lots, and complete sets.</p>
+            <a href="sell-your-cards.html" class="btn-sm">Get an Offer</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="imgs/sportsCards3.jpg" alt="PSA Grading" class="service-img" />
+          <div class="service-body">
+            <h3>PSA Grading</h3>
+            <p>We handle PSA submission from start to finish — protecting, shipping, and returning your graded slabs.</p>
+            <a href="grading.html" class="btn-sm">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-divider" />
+
+  <!-- ===== EBAY LISTINGS ===== -->
+  <div class="listings-bg">
+    <div class="section">
+      <div class="listings-header">
+        <div>
+          <p class="section-label">Live Inventory</p>
+          <h2 class="section-title">Shop Our eBay Store</h2>
+          <div class="gold-rule"></div>
+        </div>
+        <a href="https://www.ebay.com/str/YOUR_STORE_NAME" target="_blank" class="btn-outline">View Full Store →</a>
+      </div>
+      <div class="listings-grid" id="listingsGrid">
+        <div class="listings-status">
+          <div class="spinner"></div>
+          <p>Loading Listings…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-divider" />
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <div class="testimonials-bg">
+    <div class="section">
+      <p class="section-label">Happy Collectors</p>
+      <h2 class="section-title">What People Say</h2>
+      <div class="gold-rule"></div>
+      <div class="testimonials-grid" id="testimonialsList">
+        <!-- Static testimonials as placeholders -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Found a Shohei Ohtani rookie I'd been hunting for months. Great price, fast shipping, and exactly as described. MonDak is my go-to."</p>
+          <span class="testimonial-author">— Travis M., Billings MT</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Sold a big lot of vintage cards and got more than I expected. The process was easy and honest. Highly recommend for buying or selling."</p>
+          <span class="testimonial-author">— Ryan K., Williston ND</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"PSA submission service saved me so much time. They handled everything. Cards came back looking perfect in slabs."</p>
+          <span class="testimonial-author">— Sarah L., Sidney MT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <img src="/imgs/mondak_logo.jpeg" alt="MonDak Hobbies" />
+    <p>&copy; 2026 MonDak Hobbies &mdash; Sidney, Montana &mdash; All rights reserved.</p>
+  </footer>
+<script src="/scripts/main.js"></script>
+</body>
+</html>
