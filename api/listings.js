@@ -21,6 +21,7 @@ export default async function handler(req, res) {
     );
 
     const tokenData = await tokenRes.json();
+    const accessToken = tokenData.access_token;
 
     if (!tokenData.access_token) {
       throw new Error("OAuth failed: no access token");
@@ -30,7 +31,7 @@ export default async function handler(req, res) {
     const seller = "oblivioushaxton"; // eBay seller username
 
     const ebayRes = await fetch(
-      `https://api.ebay.com/buy/browse/v1/item_summary/search?q=baseball&limit=10`,
+      `https://api.ebay.com/buy/browse/v1/item_summary/search?q=*&seller=${seller}`,
       {
         headers: {
           Authorization: `Bearer ${tokenData.access_token}`,
