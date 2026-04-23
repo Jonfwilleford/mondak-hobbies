@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     const seller = "oblivioushaxton"; // eBay seller username
 
     const ebayRes = await fetch(
-      `https://api.ebay.com/buy/browse/v1/item_summary/search?q=*&seller=${seller}`,
+      `https://api.ebay.com/buy/browse/v1/item_summary/search?q=baseball&limit=10`,
       {
         headers: {
           Authorization: `Bearer ${tokenData.access_token}`,
