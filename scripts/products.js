@@ -1,5 +1,5 @@
     /* ── Products page logic ── */
-    const LISTINGS_URL = 'http://localhost:3000/api/listings';
+    //const LISTINGS_URL = 'http://localhost:3000/api/listings';
 
     async function loadProducts() {
       const grid = document.getElementById('productsGrid');
