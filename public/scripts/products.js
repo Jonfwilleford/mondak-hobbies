@@ -1,7 +1,23 @@
     /* ── Products page logic ── */
 
-    const res = await fetch('/api/listings');
-    const items = await res.json();
+async function loadProducts() {
+  const grid = document.getElementById('productsGrid');
+  if (!grid) return;
+
+  const res = await fetch('/api/listings');
+  const items = await res.json();
+
+  allCards = items.map(item => ({
+    title: item.title || 'Untitled',
+    price: item.price?.value || 'N/A',
+    imgSrc: item.image?.imageUrl || '',
+    url: item.itemWebUrl || '#',
+    cond: item.condition || '',
+    sport: detectSport(item.title || '')
+  }));
+
+  renderCards(allCards);
+}
 
     function detectSport(title) {
       const t = title.toLowerCase();
