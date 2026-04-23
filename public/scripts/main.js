@@ -90,6 +90,8 @@ async function loadHomeListings() {
 
     grid.appendChild(card);
   });
+
+  console.log("HOME LISTINGS LOADING")
 }
 
 
