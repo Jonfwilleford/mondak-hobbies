@@ -1,4 +1,8 @@
 export default function handler(req, res) {
-  // eBay validation may use POST or GET
-  res.status(200).send();
+  res.setHeader("Content-Type", "application/json");
+
+  return res.status(200).json({
+    status: "OK",
+    message: "deletion endpoint active"
+  });
 }
