@@ -2,7 +2,7 @@ import crypto from "crypto";
 
 export default function handler(req, res) {
   const challengeCode = req.body?.challengeCode;
-  const verificationToken = process.env.EBAY_VERIFICATION_TOKEN;
+  const verificationToken = process.env.JonForrestBuildsMondakHobbies;
   const endpoint = "https://mondak-hobbies.vercel.app/api/delete";
 
   if (challengeCode) {
