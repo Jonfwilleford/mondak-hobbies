@@ -1,9 +1,4 @@
 export default function handler(req, res) {
-  if (req.method === "POST" || req.method === "GET") {
-    return res.status(200).json({
-      status: "received"
-    });
-  }
-
-  return res.status(405).json({ error: "Method not allowed" });
+  // eBay validation may use POST or GET
+  res.status(200).send();
 }
