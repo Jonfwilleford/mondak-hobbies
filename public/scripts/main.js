@@ -38,10 +38,7 @@ async function fetchListings() {
 
     const data = await res.json();
 
-    return data?.itemSummaries
-        || data?.inventoryItems
-        || data?.items
-        || [];
+    return Array.isArray(data) ? data : [];
 
   } catch (err) {
     console.error('Listings fetch error:', err);
@@ -90,8 +87,6 @@ async function loadHomeListings() {
 
     grid.appendChild(card);
   });
-
-  console.log("HOME LISTINGS LOADING")
 }
 
 
