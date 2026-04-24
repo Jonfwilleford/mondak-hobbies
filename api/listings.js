@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+export default async function handler(_req, res) {
   try {
     // 1. GET ACCESS TOKEN
     const tokenRes = await fetch(
@@ -21,23 +21,33 @@ export default async function handler(req, res) {
     );
 
     const tokenData = await tokenRes.json();
-    const accessToken = tokenData.access_token;
 
     if (!tokenData.access_token) {
       throw new Error("OAuth failed: no access token");
     }
 
     // 2. Fetch listings
-    const seller = "oblivioushaxton"; // eBay seller username
+    const seller = "oblivioushaxton";
+
+    const params = new URLSearchParams({
+      q: "*",
+      filter: `sellers:{${seller}}`,
+      limit: "50",
+    });
 
     const ebayRes = await fetch(
-      `https://api.ebay.com/buy/browse/v1/item_summary/search?q=*&seller=${seller}`,
+      `https://api.ebay.com/buy/browse/v1/item_summary/search?${params}`,
       {
         headers: {
           Authorization: `Bearer ${tokenData.access_token}`,
         },
       }
     );
+
+    if (!ebayRes.ok) {
+      const errData = await ebayRes.json();
+      throw new Error(`eBay search failed: ${JSON.stringify(errData)}`);
+    }
 
     const data = await ebayRes.json();
 
