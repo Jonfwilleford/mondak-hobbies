@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell Your Cards — MonDak Hobbies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="/">
+      <img src="/imgs/mondak_logo.jpeg" alt="MonDak Hobbies" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/html/products.html">Products</a></li>
+      <li><a href="/html/breaks.html">Breaks</a></li>
+      <li><a href="/html/sell-your-cards.html">Sell Cards</a></li>
+      <li><a href="/html/grading.html">PSA Grading</a></li>
+      <li><a href="/html/contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/html/products.html">Products</a>
+    <a href="/html/breaks.html">Breaks</a>
+    <a href="/html/sell-your-cards.html">Sell Cards</a>
+    <a href="/html/grading.html">PSA Grading</a>
+    <a href="/html/contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label">We Buy Cards</p>
+      <h1>Sell Your <em>Collection</em></h1>
+      <p>Ready to move some cards? We offer fair, competitive prices on singles, lots, and full collections — with a simple, hassle-free process.</p>
+    </div>
+  </div>
+
+  <!-- WHAT WE BUY -->
+  <div class="services-bg">
+    <div class="section">
+      <p class="section-label">What We Buy</p>
+      <h2 class="section-title">All Sports, <em style="font-style:normal;color:var(--gold);">All Eras</em></h2>
+      <div class="gold-rule"></div>
+      <p class="body-text">We're interested in cards across all major sports and most eras. Whether you have a single grail card or an entire collection to liquidate, we want to hear from you.</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Sports Cards</h3>
+          <p>Baseball, basketball, football, hockey, soccer — modern and vintage. Stars, rookies, parallels, and autos.</p>
+        </div>
+        <div class="info-card">
+          <h3>Graded Slabs</h3>
+          <p>PSA, BGS, SGC, and other major grading companies. High grades especially welcome.</p>
+        </div>
+        <div class="info-card">
+          <h3>Collections &amp; Lots</h3>
+          <p>Buying bulk lots, full sets, and entire collections. No collection too large — we'll make an offer on everything.</p>
+        </div>
+        <div class="info-card">
+          <h3>Vintage Cards</h3>
+          <p>Pre-1980 cards, T206 tobacco cards, '52 Topps — if it's old and significant, we want to see it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-divider" />
+
+  <!-- PROCESS -->
+  <div class="listings-bg">
+    <div class="section">
+      <p class="section-label">Simple Process</p>
+      <h2 class="section-title">How It <em style="font-style:normal;color:var(--gold);">Works</em></h2>
+      <div class="gold-rule"></div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Send Us a List</h3>
+          <p>Fill out the form below with your cards — a photo, scan, or simple list with conditions works great to start.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Get an Offer</h3>
+          <p>We'll review your cards and come back with a fair, no-obligation offer based on current market values.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Get Paid</h3>
+          <p>Accept the offer and get paid via your preferred method. Local pickup in Sidney, MT or we cover shipping on larger lots.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-divider" />
+
+  <!-- SELL FORM -->
+  <div class="services-bg">
+    <div class="section">
+      <p class="section-label">Get an Offer</p>
+      <h2 class="section-title">Tell Us About <em style="font-style:normal;color:var(--gold);">Your Cards</em></h2>
+      <div class="gold-rule"></div>
+      <form class="sell-form" action="mailto:mondakhobbies@gmail.com" method="POST" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sell-name">Your Name</label>
+            <input class="form-control" type="text" id="sell-name" name="name" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sell-email">Email</label>
+            <input class="form-control" type="email" id="sell-email" name="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="sell-cards">What Are You Selling?</label>
+          <textarea class="form-control form-textarea" id="sell-cards" name="cards" placeholder="Describe your cards — player names, years, grades, conditions, quantity. Photos welcome once we're in touch." required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sell-quantity">Approximate Quantity</label>
+            <select class="form-control" id="sell-quantity" name="quantity">
+              <option value="">Select…</option>
+              <option>1–10 cards</option>
+              <option>11–50 cards</option>
+              <option>51–200 cards</option>
+              <option>200+ cards / full collection</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sell-asking">Asking Price (optional)</label>
+            <input class="form-control" type="text" id="sell-asking" name="asking" placeholder="e.g. $200 OBO or open to offers" />
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">Submit for an Offer</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <img src="/imgs/mondak_logo.jpeg" alt="MonDak Hobbies" />
+    <p>&copy; 2026 MonDak Hobbies &mdash; Sidney, Montana &mdash; All rights reserved.</p>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
