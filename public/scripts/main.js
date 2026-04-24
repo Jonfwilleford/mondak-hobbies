@@ -106,6 +106,73 @@ function detectSport(title) {
 
 
 // -------------------------
+// STATIC FALLBACK TESTIMONIALS
+// -------------------------
+const STATIC_TESTIMONIALS = [
+  { comment: "Found a Shohei Ohtani rookie I'd been hunting for months. Great price, fast shipping, and exactly as described. MonDak is my go-to.", author: "Travis M., Billings MT" },
+  { comment: "Sold a big lot of vintage cards and got more than I expected. The process was easy and honest. Highly recommend for buying or selling.", author: "Ryan K., Williston ND" },
+  { comment: "Submitted cards for grading and the whole process was painless. They handled everything and kept me updated the whole way.", author: "Sarah L., Sidney MT" },
+];
+
+function renderTestimonialCard(comment, author) {
+  const card = document.createElement('div');
+  card.className = 'testimonial-card';
+
+  const stars = document.createElement('div');
+  stars.className = 'testimonial-stars';
+  stars.textContent = '★★★★★';
+
+  const text = document.createElement('p');
+  text.className = 'testimonial-text';
+  text.textContent = `"${comment}"`;
+
+  const byline = document.createElement('span');
+  byline.className = 'testimonial-author';
+  byline.textContent = `— ${author}`;
+
+  card.appendChild(stars);
+  card.appendChild(text);
+  card.appendChild(byline);
+  return card;
+}
+
+// -------------------------
+// LOAD EBAY FEEDBACK
+// -------------------------
+async function loadTestimonials() {
+  const grid = document.getElementById('testimonialsList');
+  if (!grid) return;
+
+  try {
+    const res = await fetch('/api/feedback');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const items = await res.json();
+    if (!Array.isArray(items) || !items.length) throw new Error('No feedback');
+
+    const shown = items.slice(0, 6);
+    grid.innerHTML = '';
+
+    shown.forEach(item => {
+      const date = item.date
+        ? new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
+        : '';
+      const author = `Verified eBay Buyer${date ? `, ${date}` : ''}`;
+      grid.appendChild(renderTestimonialCard(item.comment, author));
+    });
+  } catch {
+    grid.innerHTML = '';
+    STATIC_TESTIMONIALS.forEach(({ comment, author }) => {
+      grid.appendChild(renderTestimonialCard(comment, author));
+    });
+  }
+}
+
+
+// -------------------------
 // INIT (runs based on page)
 // -------------------------
-if (isHomePage) loadHomeListings();
+if (isHomePage) {
+  loadHomeListings();
+  loadTestimonials();
+}
