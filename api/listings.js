@@ -55,6 +55,6 @@ export default async function handler(_req, res) {
     res.status(200).json(data.itemSummaries || []);
   } catch (err) {
     console.error("OAuth/Listings error:", err);
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Failed to fetch listings" });
   }
 }
