@@ -45,6 +45,8 @@ export default async function handler(req, res) {
     }
 
     // ⚠️ IMPORTANT: store this somewhere real later
+    console.log("ACCESS TOKEN:", data.access_token);
+    console.log("REFRESH TOKEN:", data.refresh_token);
     console.log("EBAY TOKENS:", data);
 
     return res.status(200).json({
