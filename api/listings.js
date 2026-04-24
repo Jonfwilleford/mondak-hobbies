@@ -30,7 +30,7 @@ export default async function handler(_req, res) {
     const seller = "oblivioushaxton";
 
     const params = new URLSearchParams({
-      q: "*",
+      category_ids: "261328",
       filter: `sellers:{${seller}}`,
       limit: "50",
     });
